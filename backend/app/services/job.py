@@ -10,7 +10,7 @@ def get_alljobs(db):
   return jobs
   
   
-def createthumbnails(jobs,db):
+def save_jobs_to_db(jobs,db):
   print("Jobs:",jobs)
   for job in jobs:
     newJob = Job(
