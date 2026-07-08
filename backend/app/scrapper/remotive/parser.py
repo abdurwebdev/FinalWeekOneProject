@@ -9,10 +9,6 @@ def parse_remotive_jobs(jobs_from_remotive):
     html_description = job.get("description","")
     if not html_description:
       continue
-    soup = BeautifulSoup(html_description,"html.parser")
-    clean_text = soup.get_text(separator = "\n")
-    split_lines = clean_text.splitlines()
-    clean_text = "\n".join([line.strip() for line in split_lines if line.strip()])
     standard_job = StandardJob(
       title=job.get("title"),
       company_name=job.get("company_name"),
@@ -24,7 +20,7 @@ def parse_remotive_jobs(jobs_from_remotive):
       publication_date=job.get("publication_date"),
       candidate_required_location=job.get("candidate_required_location"),
       salary=job.get("salary"),
-      description=clean_text,
+      description=html_description,
       source="Remotive"
     )
     alljobsfromremotives.append(standard_job)
