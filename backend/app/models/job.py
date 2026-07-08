@@ -15,4 +15,5 @@ class Job(Base):
   salary = Column(String)
   candidate_required_location = Column(String)
   description = Column(Text,nullable = True)
+  source = Column(String)
   

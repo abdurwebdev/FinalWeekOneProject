@@ -14,16 +14,17 @@ def createthumbnails(jobs,db):
   print("Jobs:",jobs)
   for job in jobs:
     newJob = Job(
-      title = job["title"],
-      company_name = job["company_name"],
-      url = job["url"],
-      category = job["category"],
-      tags = job["tags"],
-      job_type = job["job_type"],
-      publication_date = job["publication_date"],
-      candidate_required_location = job["candidate_required_location"],
-      salary = job["salary"],
-      description = job["description"]
+      title = job.title,
+      company_name = job.company_name,
+      url = job.url,
+      category = job.category,
+      tags = job.tags,
+      job_type = job.job_type,
+      publication_date = job.publication_date,
+      candidate_required_location = job.candidate_required_location,
+      salary = job.salary,
+      description = job.description,
+      source = job.source
     )
     db.add(newJob)
   db.commit()
