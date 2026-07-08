@@ -5,7 +5,7 @@ class Job(Base):
   __tablename__ = "jobies"
   id = Column(Integer,primary_key = True,index = True)
   title = Column(String)
-  url = Column(String)
+  url = Column(String,unique = True,nullable = False)
   company_name = Column(String)
   company_logo = Column(String)
   category = Column(String)

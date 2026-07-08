@@ -25,7 +25,7 @@ def parse_remotive_jobs(jobs_from_remotive):
       candidate_required_location=job.get("candidate_required_location"),
       salary=job.get("salary"),
       description=clean_text,
-      source=job.get("source")
+      source="Remotive"
     )
     alljobsfromremotives.append(standard_job)
   
