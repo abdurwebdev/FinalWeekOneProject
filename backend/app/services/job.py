@@ -16,9 +16,13 @@ def save_jobs_to_db(jobs,db):
   try:
     logger.info(f"Running {jobs[0].source} Scrapper....")
     logger.info(f"Fetched {len(jobs)} Jobs.....")
+    existing_url = {
+      url
+      for (url,) in db.query(Job.url).all()
+    }
     for job in jobs:
-      duplicate_job = db.query(Job).filter(Job.url == job.url).first()
-      if duplicate_job:
+      
+      if job.url in existing_url:
         duplicates+=1
         logger.info(f"Duplicate Job Skipped {job.title}")
         continue
