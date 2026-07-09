@@ -238,7 +238,7 @@ Returns the complete details of a selected job.
 ## Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/abdurwebdev/FinalWeekOneProject
 ```
 
 ---
