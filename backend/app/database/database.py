@@ -1,10 +1,8 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base,sessionmaker
-import os
+from app.config.config import setting
 
-URL = os.getenv("DATABASE_URL")
-
-engine = create_engine(URL)
+engine = create_engine(str(setting.database_url))
 
 SessionLocal = sessionmaker(
   autocommit = False,

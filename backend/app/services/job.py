@@ -5,10 +5,7 @@ from app.core.logger import logger
 def get_alljobs(db):
   jobs = db.query(Job).all()
   if not jobs:
-    raise HTTPException(
-      status_code = 404,
-      detail = "Job Not Found"
-    )
+    return []
   return jobs
   
   
@@ -50,10 +47,10 @@ def save_jobs_to_db(jobs,db):
     "failed":failed,
     "new_jobs":inserted
   }
-  except Exception as e:
+  except Exception:
     failed+=1
     db.rollback();
-    logger.exception(f"Error scraping job",e)
+    logger.exception("Error scraping job")
     raise;
 def showdetails(jobId,db):
   isexists = db.query(Job).filter(Job.id == jobId).first()
