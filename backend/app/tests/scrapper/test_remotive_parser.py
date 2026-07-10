@@ -97,7 +97,7 @@ def test_html_is_clean():
   }
   
   jobs = parse_remotive_jobs(job)
-  jobs[0].description == "Requirements\nPythonn\nFastAPI"
+  assert jobs[0].description.strip() == "Requirements\nPython\nFastAPI"
   
 
 def test_multiple_jobs():

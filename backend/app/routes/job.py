@@ -11,7 +11,7 @@ router = APIRouter(
 )
 
 @router.post("/scrape")
-def create_thumb(db:Session = Depends(get_db)):
+def scrape_jobs(db:Session = Depends(get_db)):
   jobs = scrape_remotive_jobs()
   return save_jobs_to_db(jobs,db)
 
